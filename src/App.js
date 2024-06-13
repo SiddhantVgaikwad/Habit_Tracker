@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
 
+// react-router-dom
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+
+// importing all the required components and pages
+// navbar 
+import Navbar from "./Component/Navbar";
+// the main homepage
+import Homepage from "./Pages/Homepage";
+// details page for showing habit stats
+import DetailsPage from "./Pages/DetailsPage";
+// error page in case of error
+import { Error } from "./Pages/Error";
+
+
+// to render the habit tracker app
 function App() {
+
+  // defining different routes 
+  const router = createBrowserRouter([
+    {
+      // default path 
+      path:"/",
+      element: <Navbar />,
+      errorElement: <Error />,
+      children:[
+        // to render the homepage
+        {index:true, element: <Homepage />},
+        // for rendering the detailspage
+        {path:"/detailspage", element: <DetailsPage />},
+      ]
+    }
+  ]);
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // rendering the page based on routes
+    <RouterProvider router={router} />
   );
 }
 
+// export the component
 export default App;

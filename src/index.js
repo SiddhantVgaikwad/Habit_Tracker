@@ -1,17 +1,33 @@
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+
+// style file
 import './index.css';
+
+// app component
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+// redux store provider
+import { Provider } from 'react-redux';
+// redux store
+import { store } from './Redux/Store/store';
+
+// for toast notification
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    {/* redux store */}
+    <Provider store={store}>
+      {/* for toast notification */}
+      <ToastContainer 
+        position="top-left"
+        autoClose={400}/>
+      {/* render the app */}
+      <App />
+    </Provider>
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
