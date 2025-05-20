@@ -9,6 +9,7 @@
 **Transform your daily routines into lifelong habits with AI-powered tracking and insightful analytics.**  
 HabitHero helps you build better habits through science-backed methods and engaging visual progress tracking.
 
+
 ![HabitHero Demo](demo-screenshot.gif) 
 
 ![image](https://github.com/user-attachments/assets/363d4435-f14f-42e6-bfb3-f6e4d22ebfb8)
